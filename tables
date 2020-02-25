@@ -1,0 +1,70 @@
+-- поручение
+create table assignments
+(
+	id long auto_increment,
+	headline varchar(50) not null,
+	text varchar(200) not null
+);
+
+create unique index assignments_id_uindex
+	on assignments (id);
+
+alter table assignments
+	add constraint assignments_pk
+		primary key (id);
+
+-- организации
+create table organizations
+(
+    id long auto_increment,
+    name varchar(50) not null,
+    address varchar(200) not null,
+    legal_address varchar(200) not null
+);
+
+create unique index organizations_id_uindex
+    on organizations (id);
+
+create unique index organizations_name_uindex
+    on organizations (name);
+
+alter table organizations
+    add constraint organizations_pk
+        primary key (id);
+
+-- структурные подразделения
+create table structuralUnits
+(
+    id long auto_increment,
+    name varchar(50) not null,
+    email varchar(50) not null
+);
+
+create unique index structuralUnits_email_uindex
+    on structuralUnits (email);
+
+create unique index structuralUnits_id_uindex
+    on structuralUnits (id);
+
+alter table structuralUnits
+    add constraint structuralUnits_pk
+        primary key (id);
+
+-- сотрудники
+create table employees
+(
+    id long auto_increment,
+    last_name varchar(50) not null,
+    first_name varchar(50) not null,
+    middle_name varchar(50) not null
+);
+
+create unique index employees_id_uindex
+    on employees (id);
+
+alter table employees
+    add constraint employees_pk
+        primary key (id);
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Users list</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Headline</th>
+        <th>Text</th>
+    </tr>
+    <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
+    <tr th:each="assignment : ${assignment}">
+        <td th:text="${assignment.headline}"></td>
+        <td th:text="${assignment.text}"></td>
+
+    </tr>
+</table>
+
+<br>
+<!--<a href="/users/adduser">New user</a>-->
+
+</body>
+</html>

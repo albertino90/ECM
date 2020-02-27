@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StructuralUnitRepository extends JpaRepository<StructuralUnit, Long> {
-
+    StructuralUnit getById(Long id);
 }

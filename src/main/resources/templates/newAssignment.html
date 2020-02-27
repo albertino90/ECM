@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create user page</title>
+    <title>Создание нового поручения</title>
 </head>
 <body>
 
-<form name="user" action="/users/adduser" method="post">
-    <p>Name</p>
-    <input title="Name" type="text" name="name">
-    <p>Email</p>
-    <input title="Email" type="text" name="email">
-    <p>Age</p>
-    <input title="Age" type="text" name="age">
+<form name="assignment" action="/addassignment" method="post">
+    <p>Заголовок поручения</p>
+    <input title="Заголовок поручения" type="text" name="headline">
+    <p>Текст поручения</p>
+    <input title="Текст поручения" type="text" name="text">
+<!--    <p>Age</p>-->
+<!--    <input title="Age" type="text" name="age">-->
     <input type="submit" value="OK">
 </form>
 <br>
-<a href="/users/all">К списку пользователей</a>
+<a href="/all">К списку поручений</a>
 
 </body>
 </html>

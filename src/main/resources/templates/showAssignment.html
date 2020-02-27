@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+<h1>Поручение</h1>
+<!-- tr- строка td-столбец-->
+<table>
+    <tr>
+        <td>Id</td>
+        <td th:text="${assignment.id}"></td>
+    </tr>
+    <tr>
+        <td>Заголовок поручения</td>
+        <td th:text="${assignment.headline}"></td>
+    </tr>
+    <tr>
+        <td>Текст поручения</td>
+        <td th:text="${assignment.text}"></td>
+    </tr>
+
+</table>
+<br>
+<a href="/all">К поручениям</a>
+
+</body>
+</html>

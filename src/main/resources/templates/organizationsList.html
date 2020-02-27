@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Организации</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Наименование организации</th>
+        <th>Физический адрес</th>
+        <th>Юридический адрес</th>
+        <th>Подразделения</th>
+        <th>Руководитель</th>
+    </tr>
+    <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
+    <tr th:each="organization : ${organizations}">
+        <!--        <td th:text="${user.id}">Id</td>-->
+        <td th:text="${organization.name}"></td>
+        <td th:text="${organization.address}"></td>
+        <td th:text="${organization.legal_address}"></td>
+
+
+    </tr>
+</table>
+
+<br>
+<!--<a href="/users/adduser">New user</a>-->
+
+</body>
+</html>

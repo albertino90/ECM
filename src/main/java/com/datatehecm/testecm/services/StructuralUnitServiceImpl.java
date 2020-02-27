@@ -15,7 +15,7 @@ public class StructuralUnitServiceImpl implements StructuralUnitService {
 
     @Override
     public StructuralUnit getStructuralUnit(Long id) {
-        return structuralUnitRepository.findById(id).orElse(null);
+        return structuralUnitRepository.getById(id);
     }
 
     @Override

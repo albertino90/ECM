@@ -17,7 +17,9 @@ public class AssignmentController {
 
     @GetMapping("/all")
     public String getAllAssignments(Model model){
-        model.addAttribute("assignment", assignmentService.findAll());
+        model.addAttribute("assignments", assignmentService.findAll());
+        System.out.println(assignmentService.findAll());
+
         return "assignmentList";
     }
 

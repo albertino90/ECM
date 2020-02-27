@@ -9,12 +9,11 @@
 <h1>Users list</h1>
 <table>
     <tr>
-        <th>Id</th>
         <th>Headline</th>
         <th>Text</th>
     </tr>
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
-    <tr th:each="assignment : ${assignment}">
+    <tr th:each="assignment : ${assignments}">
         <td th:text="${assignment.headline}"></td>
         <td th:text="${assignment.text}"></td>
 

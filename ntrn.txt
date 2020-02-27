@@ -1,0 +1,8 @@
+CREATE TABLE `ecm_schema`.`assignments` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `headline` VARCHAR(250) NOT NULL,
+  `text` VARCHAR(400) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;

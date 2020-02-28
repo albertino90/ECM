@@ -3,6 +3,8 @@ package com.datatehecm.testecm.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,7 +22,8 @@ public class Employee {
     private String first_name;
     private String middle_name;
     private String position;
-//    private Position employees_position;
+    @OneToMany(mappedBy="author")
+    private Set<Assignment> assignments = new HashSet<Assignment>();
 
 
 }

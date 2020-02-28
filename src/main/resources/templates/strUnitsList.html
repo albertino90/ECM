@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Структурные подразделения</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Название подразделения</th>
+        <th>Электронная почта</th>
+        <th>Организация</th>
+    </tr>
+    <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
+    <tr th:each="structuralUnit : ${structuralUnits}">
+        <td>
+            <a th:href="@{${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
+        </td>
+        <td th:text="${structuralUnit.name}"></td>
+        <td th:text="${structuralUnit.email}"></td>
+<!--        <td th:text="${structuralUnit.organization.name} "></td>-->
+        <td><a th:href="@{'/strunits/delete/' + ${structuralUnit.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'/strunits/update/' + ${structuralUnit.id}}"th:text="Update"></a></td>
+
+    </tr>
+</table>
+
+<br>
+<a href="/strunits/addsu">Добавить структурное подразделение</a>
+
+</body>
+</html>

@@ -1,22 +1,19 @@
 package com.datatehecm.testecm.controllers;
 
+
 import com.datatehecm.testecm.model.Assignment;
 import com.datatehecm.testecm.services.AssignmentService;
-import com.datatehecm.testecm.services.OrganizationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/assign")
 @RequiredArgsConstructor
 public class AssignmentController {
 
     private final AssignmentService assignmentService;
-    private final OrganizationService organizationService;
 
     @GetMapping("/all")
     public String getAllAssignments(Model model){
@@ -38,14 +35,6 @@ public class AssignmentController {
     @GetMapping("/{id}")
     public String getAssignmentById(@PathVariable Long id, Model model) {
         model.addAttribute("assignment",assignmentService.getAssignment(id));
-//        model.addAttribute("account",accountService.getAccount(id));
-//        Message message = new Message(text, tag, user);
-//
-//        messageRepo.save(message);
-//
-//        Iterable<Message> messages = messageRepo.findAll();
-//
-//        model.put("messages", messages);
         return "showAssignment";
     }
 

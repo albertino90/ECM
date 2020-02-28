@@ -12,6 +12,7 @@
         <th>id</th>
         <th>Заголовок</th>
         <th>Текст</th>
+        <th>Автор</th>
     </tr>
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="assignment : ${assignments}">
@@ -20,6 +21,7 @@
         </td>
         <td th:text="${assignment.headline}"></td>
         <td th:text="${assignment.text}"></td>
+        <td th:text="${assignment.author.first_name} "></td>
         <td><a th:href="@{'/delete/' + ${assignment.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'/update/' + ${assignment.id}}"th:text="Update"></a></td>
 

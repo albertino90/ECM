@@ -3,6 +3,7 @@ package com.datatehecm.testecm.services;
 import com.datatehecm.testecm.model.Organization;
 import com.datatehecm.testecm.repositories.OrganizationRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class OrganizationServiceImpl implements OrganizationService {
-    OrganizationRepository organizationRepository;
+
+    private final OrganizationRepository organizationRepository;
 
     @Override
     public Organization getOrganization(Long id) {

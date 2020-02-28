@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новую организацию</title>
+</head>
+<body>
+<!--name - название атрибута в модели-->
+<form name="organization" action="/addorg" method="post">
+    <p>Название организации</p>
+    <input title="Название организации" type="text" name="name">
+    <p>Физический адрес</p>
+    <input title="Физический адрес" type="text" name="address">
+    <p>Юридический адрес</p>
+    <input title="Юридический адрес" type="text" name="legal_address">
+    <input type="submit" value="OK">
+</form>
+<br>
+<a href="/all">К списку организаций</a>
+
+</body>
+</html>

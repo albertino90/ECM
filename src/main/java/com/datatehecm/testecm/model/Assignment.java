@@ -2,11 +2,7 @@ package com.datatehecm.testecm.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -22,7 +18,11 @@ public class Assignment {
     @GeneratedValue
     private Long id;
     private String headline;
-//    private Employee author;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee author;
+
 //    private Employee responsible_employee;
     private String text;
 

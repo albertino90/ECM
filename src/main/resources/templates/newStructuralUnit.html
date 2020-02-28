@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новое структурное подразделение</title>
+</head>
+<body>
+<!--name - название атрибута в модели-->
+<form name="structuralUnit" action="/addsu" method="post">
+    <p>Название подразделения</p>
+    <input title="Название подразделения" type="text" name="name">
+    <p>Электронная почта</p>
+    <input title="Электронная почта" type="text" name="email">
+    <p>Организация</p>
+    <input title="Организация" type="text" name="organization">
+    <input type="submit" value="OK">
+</form>
+<br>
+<a href="/strunits/all">К списку подразделений</a>
+
+</body>
+</html>

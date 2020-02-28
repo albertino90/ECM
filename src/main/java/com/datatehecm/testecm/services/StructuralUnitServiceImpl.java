@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StructuralUnitServiceImpl implements StructuralUnitService {
 
-    StructuralUnitRepository structuralUnitRepository;
+    private final StructuralUnitRepository structuralUnitRepository;
 
     @Override
     public StructuralUnit getStructuralUnit(Long id) {

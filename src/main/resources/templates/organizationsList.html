@@ -6,29 +6,33 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Организации</h1>
+<h1>Список организаций</h1>
 <table>
     <tr>
-        <th>Id</th>
+        <th>id</th>
         <th>Наименование организации</th>
         <th>Физический адрес</th>
         <th>Юридический адрес</th>
-        <th>Подразделения</th>
-        <th>Руководитель</th>
+<!--        <th>Руководитель</th>-->
+<!--        <th>Сотрудники</th>-->
     </tr>
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="organization : ${organizations}">
-        <!--        <td th:text="${user.id}">Id</td>-->
+        <td>
+            <a th:href="@{${organization.id}}"th:text="${organization.id}"></a>
+        </td>
         <td th:text="${organization.name}"></td>
         <td th:text="${organization.address}"></td>
         <td th:text="${organization.legal_address}"></td>
-
+<!--        <td th:text="${organization.structuralUnits.} "></td>-->
+        <td><a th:href="@{'/delete/' + ${organization.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'/update/' + ${organization.id}}"th:text="Update"></a></td>
 
     </tr>
 </table>
 
 <br>
-<!--<a href="/users/adduser">New user</a>-->
+<a href="/addorg">Добавить организацию</a>
 
 </body>
 </html>

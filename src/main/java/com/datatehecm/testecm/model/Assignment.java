@@ -18,13 +18,13 @@ public class Assignment {
     @GeneratedValue
     private Long id;
     private String headline;
+    private String text;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "author_employee_id")
     private Employee author;
 
-//    private Employee responsible_employee;
-    private String text;
+    //    private Employee responsible_employee;
 
 
 }

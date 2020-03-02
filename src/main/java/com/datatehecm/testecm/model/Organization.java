@@ -21,8 +21,16 @@ public class Organization {
     private String address;
     private String legal_address;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "organization_manager_id")
+    private Employee manager;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "organization")
     private Set <StructuralUnit> structuralUnits = new HashSet<StructuralUnit>();
-//    private Employee manager;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "organization")
+    private Set <Employee> employees  = new HashSet<Employee>();
+
+
 
 }

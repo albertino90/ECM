@@ -40,6 +40,10 @@ public class AssignmentController {
 
     @GetMapping("/delete/{id}")
     public String deleteAssignment(@PathVariable Long id ){
+//        Contact contact = contactRepository.findOne(id);
+//        contactRepository.delete(contact);
+//        assignmentService.delete(id);
+        Assignment assignment = assignmentService.getAssignment(id);
         assignmentService.delete(id);
         return "redirect:/all";
     }

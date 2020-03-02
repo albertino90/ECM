@@ -22,8 +22,25 @@ public class Employee {
     private String first_name;
     private String middle_name;
     private String position;
-    @OneToMany(mappedBy="author")
+
+//    @OneToOne(mappedBy = "manager")
+//    private Organization organization;
+
+    @OneToMany(mappedBy="author",cascade = CascadeType.ALL)
     private Set<Assignment> assignments = new HashSet<Assignment>();
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "organization__id")
+    private Organization organization;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="structural_unit_id")
+    private StructuralUnit structuralUnit;
+
+
+
+
+
 
 
 }

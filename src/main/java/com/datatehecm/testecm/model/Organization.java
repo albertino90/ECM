@@ -3,6 +3,7 @@ package com.datatehecm.testecm.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,21 +14,31 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Column(unique=true)
     private String name;
+
+    @NotNull
     private String address;
+
+    @NotNull
     private String legal_address;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "organization_manager_id")
     private Employee manager;
 
+    @NotNull
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "organization")
     private Set <StructuralUnit> structuralUnits = new HashSet<StructuralUnit>();
 
+    @NotNull
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "organization")
     private Set <Employee> employees  = new HashSet<Employee>();
 

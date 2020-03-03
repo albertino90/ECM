@@ -3,7 +3,7 @@ package com.datatehecm.testecm.model;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,13 +21,18 @@ public class StructuralUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "structuralUnit_manager_id")
     private Employee manager;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "organization__id")
     private Organization organization;

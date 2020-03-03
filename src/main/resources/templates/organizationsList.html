@@ -13,7 +13,7 @@
         <th>Наименование организации</th>
         <th>Физический адрес</th>
         <th>Юридический адрес</th>
-<!--        <th>Руководитель</th>-->
+        <th>Руководитель</th>
 <!--        <th>Сотрудники</th>-->
     </tr>
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
@@ -24,6 +24,8 @@
         <td th:text="${organization.name}"></td>
         <td th:text="${organization.address}"></td>
         <td th:text="${organization.legal_address}"></td>
+        <td></td>
+<!--        <td th:text="${organization.manager.id}"></td>-->
 <!--        <td th:text="${organization.structuralUnits.} "></td>-->
         <td><a th:href="@{'/delete/' + ${organization.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'/update/' + ${organization.id}}"th:text="Update"></a></td>

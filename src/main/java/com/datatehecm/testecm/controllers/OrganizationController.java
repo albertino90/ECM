@@ -3,7 +3,6 @@ package com.datatehecm.testecm.controllers;
 import com.datatehecm.testecm.model.Organization;
 import com.datatehecm.testecm.services.OrganizationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +37,8 @@ public class OrganizationController {
         model.addAttribute("organization",organizationService.getOrganization(id));
         return "showOrg";
     }
+
+
 
     @GetMapping("/delete/{id}")
     public String deleteOrg(@PathVariable Long id ){

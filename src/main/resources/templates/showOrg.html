@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Список структурных подразделений</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Название подразделения</th>
+        <th>Электронная почта</th>
+        <th>Организация</th>
+    </tr>
+    <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
+    <tr th:each="structuralUnit : ${organization.structuralUnits}">
+        <td>
+            <a th:href="@{${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
+        </td>
+        <td th:text="${structuralUnit.name}"></td>
+        <td th:text="${structuralUnit.email}"></td>
+        <td th:text="${structuralUnit.organization.name} "></td>
+        <td><a th:href="@{'/strunits/delete/' + ${structuralUnit.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'/strunits/update/' + ${structuralUnit.id}}"th:text="Update"></a></td>
+    </tr>
+</table>
+
+<form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{msg.id}" /></td>
+            <td><input type="number" th:field="*{id}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.name}" /></td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+
+<form name="organization" action="/addorg" method="post">
+    <p>Название организации</p>
+    <input title="Название организации" type="text" name="name">
+    <p>Физический адрес</p>
+    <input title="Физический адрес" type="text" name="address">
+    <p>Юридический адрес</p>
+    <input title="Юридический адрес" type="text" name="legal_address">
+    <input type="submit" value="OK">
+</form>
+
+<br>
+<a href="/strunits/addsu">Добавить структурное подразделение</a>
+<br>
+<a href="/all">К списку организаций</a>
+
+</body>
+</html>

@@ -28,11 +28,13 @@ public class Assignment {
     private String text;
 
     @NotNull
+    @EqualsAndHashCode.Exclude
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Employee author;
 
     @NotNull
+    @EqualsAndHashCode.Exclude
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set <Employee> employee_contractor = new HashSet<Employee>();
 

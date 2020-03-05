@@ -1,5 +1,6 @@
 package com.datatehecm.testecm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,18 +33,22 @@ public class Employee {
     @NotNull
     private String position;
 
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy="author",cascade = CascadeType.ALL)
     private Set<Assignment>author_of_assignments = new HashSet<Assignment>();
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "organization__id")
-    private Organization organization;
+//    @NotNull
+//    @EqualsAndHashCode.Exclude
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "organization__id")
+//    private Organization organization;
 
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="structural_unit_id")
     private StructuralUnit structuralUnit;
 
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "employee_contractor",fetch = FetchType.EAGER)
     private Set<Assignment> assignments_contractor = new HashSet<Assignment>();
 

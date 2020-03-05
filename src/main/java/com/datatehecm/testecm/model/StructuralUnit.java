@@ -1,5 +1,7 @@
 package com.datatehecm.testecm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,15 +30,21 @@ public class StructuralUnit {
     @NotNull
     private String email;
 
+    @EqualsAndHashCode.Exclude
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "structuralUnit_manager_id")
     private Employee manager;
 
+//    Для теста в JSON
+//    @JsonIgnoreProperties("structuralUnits")
     @NotNull
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "organization__id")
     private Organization organization;
 
+
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy="structuralUnit",cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<Employee>();
 

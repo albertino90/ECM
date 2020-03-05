@@ -5,7 +5,6 @@ package com.datatehecm.testecm.controllers;
 import com.datatehecm.testecm.model.StructuralUnit;
 import com.datatehecm.testecm.services.StructuralUnitService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class StructuralUnitController {
 
     @GetMapping("/addsu")
     public String addStrUnit() {
-        return "newStructuralUnit";
+        return "addStructuralUnit";
     }
 
     @PostMapping("/addsu")

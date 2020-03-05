@@ -8,28 +8,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @Controller
+//@RestController
 @RequiredArgsConstructor
+@RequestMapping("/organizations")
 public class OrganizationController {
 
     private final OrganizationService organizationService;
 
+
     @GetMapping("/all")
-    public String getAllOrgs(Model model){
+    public String getAllOrgs (Model model){
         model.addAttribute("organizations", organizationService.findAll());
         return "organizationsList";
     }
 
     @GetMapping("/addorg")
-    public String addOrg() {
+    public String addOrganization() {
         return "newOrg";
     }
 
-
     @PostMapping("/addorg")
-    public String addOrg(@ModelAttribute("organization")Organization organization) throws Exception {
+    public String addOrganization(@ModelAttribute("organization")Organization organization) throws Exception {
         organizationService.addOrganization(organization);
-        return "redirect:/all";
+        return "redirect:all";
     }
 
     @GetMapping("/{id}")
@@ -38,12 +41,22 @@ public class OrganizationController {
         return "showOrg";
     }
 
+    @GetMapping("{id}/addsu")
+    public String addStructuralUnit(){
+        return "addStructuralUnit";
+    }
 
-
+    @PostMapping("/{id}/addsu")
+    public String addStrUnit(@PathVariable Long id,Model model) throws Exception {
+        model.addAttribute("organization",organizationService.getOrganization(id));
+        return "redirect:/" + "id";
+    }
     @GetMapping("/delete/{id}")
     public String deleteOrg(@PathVariable Long id ){
+        Organization organization = organizationService.getOrganization(id);
+        organization.setManager(null);
         organizationService.delete(id);
-        return "redirect:/all";
+        return "redirect:" + "/organizations/all";
     }
     @GetMapping("/update/{id}")
     public String updateOrg(@PathVariable Long id, Model model){
@@ -60,3 +73,8 @@ public class OrganizationController {
 
 
 }
+//    JSON
+//    @RequestMapping(value = "/all", method = RequestMethod.GET)
+//    public List<Organization> getAuthors() {
+//        return organizationService.findAll();
+//    }

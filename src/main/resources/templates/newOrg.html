@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Добавить новую организацию</title>
+    <title>Добавить новую организацию </title>
 </head>
 <body>
 <!--name - название атрибута в модели-->
-<form name="organization" action="/addorg" method="post">
+<form name="organization" action="addorg" method="post">
     <p>Название организации</p>
     <input title="Название организации" type="text" name="name">
     <p>Физический адрес</p>
@@ -16,7 +16,9 @@
     <input type="submit" value="OK">
 </form>
 <br>
-<a href="/all">К списку организаций</a>
+<a href="all">К списку организаций</a>
+
+<!--<a th:href="@{ ${organization.id}+'/addsu'}">Добавить структурное подразделение</a>-->
 
 </body>
 </html>

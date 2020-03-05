@@ -66,7 +66,7 @@ public class OrganizationController {
     @PostMapping("/update")
     public String update(@ModelAttribute("organization") Organization organization){
         organizationService.update(organization);
-        return "redirect:/all";
+        return "redirect:/organizations/all";
     }
 
 

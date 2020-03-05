@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Редактирование организации</title>
 </head>
 <body>
 
-<form name="organization" action="addorg" method="post">
-    <p>Название организации</p>
-    <input title="Название организации" type="text" name="name">
-    <p>Физический адрес</p>
-    <input title="Физический адрес" type="text" name="address">
-    <p>Юридический адрес</p>
-    <input title="Юридический адрес" type="text" name="legal_address">
-    <input type="submit" value="OK">
+<form action="#" th:action="@{/organizations/update}" th:object="${organization}" method="post">
+    <input th:type="hidden" th:field = "${organization.id}">
+    <label for="name">Наименование организации</label>
+    <p></p>
+<!--    <p>Наименование организации</p>-->
+    <input type="text" th:field="*{name}" id= "name" placeholder="Name"><br>
+    <p></p>
+    <label for="address">Адрес огранизации</label>
+    <p></p>
+    <input type="text" th:field="*{address}" id= "address" placeholder="Address"><br>
+    <p></p>
+    <label for="legal_address">Юридический адрес</label>
+    <p></p>
+    <input type="text" th:field="*{legal_address}" id= "legal_address" placeholder="Name">
+    <p></p>
+    <input type="submit" value="Окей">
 </form>
+
+<!--<form action="#"-->
+<!--      th:action="@{/update/{id}(id=${organization.id})}"-->
+<!--      th:object="${organization}"-->
+<!--      method="post">-->
+<!--    <label for="name">Name</label>-->
+<!--    <input type="text" th:field="*{name}" id="name" placeholder="Name">-->
+<!--    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+<!--    <label for="email">Email</label>-->
+<!--    <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
+<!--    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>-->
+<!--    <input type="submit" value="Update User">-->
+<!--</form>-->
+
+<!--<form name="organization" action="addorg" method="post">-->
+<!--    <p>Название организации</p>-->
+<!--    <input title="Название организации" type="text" name="name">-->
+<!--    <p>Физический адрес</p>-->
+<!--    <input title="Физический адрес" type="text" name="address">-->
+<!--    <p>Юридический адрес</p>-->
+<!--    <input title="Юридический адрес" type="text" name="legal_address">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->
+
+
 
 </body>
 </html>

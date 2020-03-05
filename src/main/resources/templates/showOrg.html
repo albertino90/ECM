@@ -12,7 +12,6 @@
         <th>id</th>
         <th>Название подразделения</th>
         <th>Электронная почта</th>
-        <th>Организация</th>
     </tr>
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="structuralUnit : ${organization.structuralUnits}">
@@ -21,7 +20,6 @@
         </td>
         <td th:text="${structuralUnit.name}"></td>
         <td th:text="${structuralUnit.email}"></td>
-        <td th:text="${structuralUnit.organization.name} "></td>
         <td><a th:href="@{'delete/' + ${structuralUnit.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'update/' + ${structuralUnit.id}}"th:text="Update"></a></td>
     </tr>

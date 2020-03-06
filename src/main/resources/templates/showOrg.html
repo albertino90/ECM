@@ -29,8 +29,13 @@
 <!--<a th:href="@{/acceptplayer/{id}(id=${player.firstName})}">Добавить структурное подразделение</a>-->
 
 <br>
-<h3>Директор организации {имя} + /crud</h3><br>
+<h3>Директор организации</h3>
+<h6 th:text="${organization?.manager?.toString()}"></h6>
 
+<a href="/organizations/all">К списку организаций</a>
+
+</body>
+</html>
 
 <!--<form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">-->
 <!--    <table border="1">-->
@@ -57,9 +62,3 @@
 <!--    <input title="Юридический адрес" type="text" name="legal_address">-->
 <!--    <input type="submit" value="OK">-->
 <!--</form>-->
-
-<br>
-<a href="/organizations/all">К списку организаций</a>
-
-</body>
-</html>

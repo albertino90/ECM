@@ -52,10 +52,8 @@ public class Employee {
     @ManyToMany(mappedBy = "employee_contractor",fetch = FetchType.EAGER)
     private Set<Assignment> assignments_contractor = new HashSet<Assignment>();
 
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return last_name+" "+first_name+" "+middle_name;
+    }
 }

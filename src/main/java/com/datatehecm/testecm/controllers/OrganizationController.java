@@ -1,7 +1,9 @@
 package com.datatehecm.testecm.controllers;
 
 import com.datatehecm.testecm.model.Organization;
+import com.datatehecm.testecm.model.StructuralUnit;
 import com.datatehecm.testecm.services.OrganizationService;
+import com.datatehecm.testecm.services.StructuralUnitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class OrganizationController {
 
     private final OrganizationService organizationService;
+    private final StructuralUnitService structuralUnitService;
 
 
     @GetMapping("/all")
@@ -42,15 +45,22 @@ public class OrganizationController {
     }
 
     @GetMapping("{id}/addsu")
-    public String addStructuralUnit(){
+    public String addStructuralUnit(@PathVariable Long id, Model model){
+//        Organization organization = organizationService.getOrganization(id);
+        StructuralUnit structuralUnit = new StructuralUnit();
+//        structuralUnit.setOrganization(organization);
+        model.addAttribute("organization",organizationService.getOrganization(id));
+        model.addAttribute("strUnit",structuralUnit);
         return "addStructuralUnit";
     }
 
-    @PostMapping("/{id}/addsu")
-    public String addStrUnit(@PathVariable Long id,Model model) throws Exception {
-        model.addAttribute("organization",organizationService.getOrganization(id));
-        return "redirect:/" + "id";
+    @PostMapping("/addsu")
+    public String addStrUnit(@ModelAttribute("organization") StructuralUnit structuralUnit) throws Exception {
+        structuralUnitService.addStructuralUnit(structuralUnit);
+        Long redirectId = structuralUnit.getOrganization().getId();
+        return "redirect:/organizations/" + redirectId;
     }
+
     @GetMapping("/delete/{id}")
     public String deleteOrg(@PathVariable Long id ){
         Organization organization = organizationService.getOrganization(id);

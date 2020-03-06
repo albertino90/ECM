@@ -25,10 +25,6 @@
         <td th:text="${organization.address}"></td>
         <td th:text="${organization.legal_address}"></td>
         <td th:text="${organization?.manager?.first_name}"></td>
-<!--        <td th:text="${organization.manager.first_name != null} ? ${organization.manager.first_name} : 'NOT FOUND'"/>-->
-<!--        <td th:if="${organization.manager.first_name != null}" th:text="${organization.manager.first_name}">пусто</td>-->
-        <td></td>
-<!--        <td th:text="${organization.structuralUnits.} "></td>-->
         <td><a th:href="@{'delete/' + ${organization.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'update/' + ${organization.id}}"th:text="Update"></a></td>
 

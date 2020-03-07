@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить структурное подразделение </title>
+</head>
+<body>
+<!--name - название атрибута в модели-->
+<form name="#" th:action="@{/organizations/addemployee}" th:object="${employee}" method="post">
+
+
+    <p></p>
+    <input th:type="hidden" name="id" th:value="*{id}" >
+    <input th:type="hidden" name="structuralUnit.id" th:value="${strUnit.id}" >
+    <label for="last_name">Фамилия</label>
+    <p></p>
+    <input type="text" th:field="*{last_name}" id= "last_name" placeholder="Фамилия">
+    <p></p>
+    <label for="first_name">Имя</label>
+    <p></p>
+    <input th:type="text" th:field="*{first_name}" id="first_name" placeholder="Имя">
+    <p></p>
+    <label for="middle_name">Отчество</label>
+    <p></p>
+    <input th:type="text" th:field="*{middle_name}" id="middle_name" placeholder="Отчество">
+    <p></p>
+    <label for="position">Имя</label>
+    <p></p>
+    <input th:type="text" th:field="*{position}" id="position" placeholder="Должность">
+    <p></p>
+
+    <input type="submit" value="OK">
+</form>
+<br>
+<a th:href="@{'/organizations/strunits/'+${strUnit.id}}">Назад</a>
+
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Создание нового поручения</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;name - название атрибута в модели&ndash;&gt;-->
+<!--<form name="assignment" action="/addassignment" method="post">-->
+<!--    <p>Заголовок поручения</p>-->
+<!--    <input title="Заголовок поручения" type="text" name="headline">-->
+<!--    <p>Текст поручения</p>-->
+<!--    <input title="Текст поручения" type="text" name="text">-->
+<!--    <p>Автор поручения</p>-->
+<!--    <input title="Автор поручения" type="number" name="author">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->
+<!--<br>-->
+<!--<a href="/all">К списку поручений</a>-->
+
+<!--</body>-->
+<!--</html>-->

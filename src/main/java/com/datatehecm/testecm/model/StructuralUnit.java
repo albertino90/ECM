@@ -45,7 +45,7 @@ public class StructuralUnit {
 
 
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy="structuralUnit",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="structuralUnit",fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Employee> employees = new HashSet<Employee>();
 
 

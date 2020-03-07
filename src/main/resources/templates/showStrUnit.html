@@ -23,14 +23,14 @@
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="employee : ${strUnit.employees}">
         <td>
-            <a th:href="@{'/organizations/strunits/'+${employee.id}}"th:text="${employee.id}"></a>
+            <a th:href="@{'/organizations/employees/'+${employee.id}}"th:text="${employee.id}"></a>
         </td>
-        <td th:text="${employee.first_name}"></td>
         <td th:text="${employee.last_name}"></td>
+        <td th:text="${employee.first_name}"></td>
         <td th:text="${employee.middle_name}"></td>
         <td th:text="${employee.position}"></td>
-        <td><a th:href="@{'strunits/delete/' + ${employee.id}}"th:text="Delete"></a></td>
-        <td><a th:href="@{'strunits/update/' + ${employee.id}}"th:text="Update"></a></td>
+        <td><a th:href="@{'/organizations/employee/delete/' + ${employee.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'/organizations/employee/update/' + ${employee.id}}"th:text="Update"></a></td>
     </tr>
 
 </table>

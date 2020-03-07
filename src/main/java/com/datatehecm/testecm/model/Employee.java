@@ -1,6 +1,5 @@
 package com.datatehecm.testecm.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -49,6 +48,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return last_name+" "+first_name+" "+middle_name;
+        return "Сотрудник: " + last_name + " "+ first_name + " " + middle_name;
     }
 }

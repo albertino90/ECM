@@ -12,14 +12,16 @@
     </em>
 </p>
 <p>Список моих поручений</p>
-<table>
-    <tr>
-        <th>id</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Отчество</th>
-        <th>Должность</th>
-    </tr>
+
+<a th:href="${employee.id}+'/addassignment'">Создать новое поручение</a>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>id</th>-->
+<!--        <th>Имя</th>-->
+<!--        <th>Фамилия</th>-->
+<!--        <th>Отчество</th>-->
+<!--        <th>Должность</th>-->
+<!--    </tr>-->
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
 <!--    <tr th:each="employee : ${strUnit.employees}">-->
 <!--        <td>-->
@@ -33,11 +35,9 @@
 <!--        <td><a th:href="@{'strunits/update/' + ${employee.id}}"th:text="Update"></a></td>-->
 <!--    </tr>-->
 
-</table>
+<!--</table>-->
+<p>Список поручений мне</p>
 <p></p>
-<!--<a th:href="@{ ${strUnit.id}+'/addemployee'}">Добавить нового сотрудника</a><br><br>-->
-<!--&lt;!&ndash;<a th:href="@{/acceptplayer/{id}(id=${player.firstName})}">Добавить структурное подразделение</a>&ndash;&gt;-->
-<!--<a th:href="@{'/organizations/'+ ${strUnit.organization.id}}">Назад</a>-->
 
 </body>
 </html>

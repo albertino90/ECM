@@ -32,6 +32,7 @@
 <br>
 <h3>Директор организации</h3>
 <h6 th:text="${organization?.manager?.toString()}"></h6>
+<a th:href="@{ ${organization.id}+'/addemployee'}">Добавить директора</a>
 
 <a href="/organizations/all">К списку организаций</a>
 

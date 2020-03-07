@@ -44,23 +44,6 @@ public class OrganizationController {
         return "showOrg";
     }
 
-    @GetMapping("{id}/addsu")
-    public String addStructuralUnit(@PathVariable Long id, Model model){
-//        Organization organization = organizationService.getOrganization(id);
-        StructuralUnit structuralUnit = new StructuralUnit();
-//        structuralUnit.setOrganization(organization);
-        model.addAttribute("organization",organizationService.getOrganization(id));
-        model.addAttribute("strUnit",structuralUnit);
-        return "addStructuralUnit";
-    }
-
-    @PostMapping("/addsu")
-    public String addStrUnit(@ModelAttribute("organization") StructuralUnit structuralUnit) throws Exception {
-        structuralUnitService.addStructuralUnit(structuralUnit);
-        Long redirectId = structuralUnit.getOrganization().getId();
-        return "redirect:/organizations/" + redirectId;
-    }
-
     @GetMapping("/delete/{id}")
     public String deleteOrg(@PathVariable Long id ){
         Organization organization = organizationService.getOrganization(id);
@@ -77,6 +60,33 @@ public class OrganizationController {
     public String update(@ModelAttribute("organization") Organization organization){
         organizationService.update(organization);
         return "redirect:/organizations/all";
+    }
+
+    @GetMapping("{id}/addsu")
+    public String addStructuralUnit(@PathVariable Long id, Model model){
+//        Organization organization = organizationService.getOrganization(id);
+//        structuralUnit.setOrganization(organization);
+        StructuralUnit structuralUnit = new StructuralUnit();
+        model.addAttribute("organization",organizationService.getOrganization(id));
+        model.addAttribute("strUnit",structuralUnit);
+        return "addStructuralUnit";
+    }
+
+    @PostMapping("/addsu")
+    public String addStrUnit(@ModelAttribute("organization") StructuralUnit structuralUnit) throws Exception {
+        structuralUnitService.addStructuralUnit(structuralUnit);
+        Long redirectId = structuralUnit.getOrganization().getId();
+        return "redirect:/organizations/" + redirectId;
+    }
+
+    @GetMapping("strunits/delete/{id}")
+    public String deleteStructuralUnit(@PathVariable Long id ){
+        StructuralUnit structuralUnit = structuralUnitService.getStructuralUnit(id);
+        Long redirectId = structuralUnit.getOrganization().getId();
+//        structuralUnit.setOrganization(null);
+        structuralUnitService.delete(id);
+
+        return "redirect:" + "/organizations/" + redirectId;
     }
 
 

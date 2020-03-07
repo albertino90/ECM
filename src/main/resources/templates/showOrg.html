@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1 th:text="'ООО '+${organization.name}"></h1>
+<h1 th:text="'ООО &quot;'+${organization.name}+'&quot;'"></h1>
 <table>
     <tr>
         <th>id</th>
@@ -16,12 +16,12 @@
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="structuralUnit : ${organization.structuralUnits}">
         <td>
-            <a th:href="@{${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
+            <a th:href="@{${organization.id}+'/strunits/'+${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
         </td>
         <td th:text="${structuralUnit.name}"></td>
         <td th:text="${structuralUnit.email}"></td>
-        <td><a th:href="@{'delete/' + ${structuralUnit.id}}"th:text="Delete"></a></td>
-        <td><a th:href="@{'update/' + ${structuralUnit.id}}"th:text="Update"></a></td>
+        <td><a th:href="@{'strunits/delete/' + ${structuralUnit.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'strunits/update/' + ${structuralUnit.id}}"th:text="Update"></a></td>
     </tr>
 
 </table>

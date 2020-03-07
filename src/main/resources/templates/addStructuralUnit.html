@@ -7,9 +7,11 @@
 <body>
 <!--name - название атрибута в модели-->
 <form name="#" th:action="@{/organizations/addsu}" th:object="${strUnit}" method="post">
-    <p>ID</p>
-    <input th:type="text" th:field = "${strUnit.organization.id}">
 
+
+    <p></p>
+    <input th:type="hidden" name="id" th:value="*{id}" >
+    <input th:type="hidden" name="organization.id" th:value="${organization.id}" >
     <label for="name">Наименование подразделения</label>
     <p></p>
     <input type="text" th:field="*{name}" id= "name" placeholder="Name">
@@ -23,8 +25,6 @@
 </form>
 <br>
 <a th:href="@{'/organizations/'+${organization.id}}">Назад</a>
-
-<!--<a th:href="@{ ${organization.id}+'/addsu'}">Добавить структурное подразделение</a>-->
 
 </body>
 </html>

@@ -39,8 +39,7 @@ public class Organization {
 
 //    @JsonIgnoreProperties("organization")
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "organization",cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
-    //    private Set <StructuralUnit> structuralUnits;
+    @OneToMany(mappedBy = "organization",fetch = FetchType.EAGER, orphanRemoval = true)
     private Set <StructuralUnit> structuralUnits = new HashSet<StructuralUnit>();
 //    убрал сотрудников от орг
 //    @EqualsAndHashCode.Exclude

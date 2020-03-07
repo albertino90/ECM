@@ -37,7 +37,7 @@ public class StructuralUnit {
 
 //    Для теста в JSON
 //    @JsonIgnoreProperties("structuralUnits")
-//    @NotNull
+    @NotNull
     @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "organization__id")

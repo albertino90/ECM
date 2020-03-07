@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование структурного подразделения</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/organizations/strunits/update}" th:object="${strUnit}" method="post">
+    <input th:type="hidden" th:field = "${strUnit.id}">
+
+    <input th:type="hidden" name="id" th:value="*{id}" >
+    <input th:type="hidden"  th:field="*{organization.id}" >
+
+    <label for="name">Наименование структурного подразделения</label>
+    <p></p>
+    <input type="text" th:field="*{name}" id= "name" placeholder="Name"><br>
+    <p></p>
+    <label for="email">Контактные данные</label>
+    <p></p>
+    <input type="text" th:field="*{email}" id= "email" placeholder="Address"><br>
+    <p></p>
+<!--    <label for="legal_address">Юридический адрес</label>-->
+<!--    <p></p>-->
+<!--    <input type="text" th:field="*{legal_address}" id= "legal_address" placeholder="Name">-->
+    <p></p>
+    <input type="submit" value="Окей">
+</form>
+
+<!--<form action="#"-->
+<!--      th:action="@{/update/{id}(id=${organization.id})}"-->
+<!--      th:object="${organization}"-->
+<!--      method="post">-->
+<!--    <label for="name">Name</label>-->
+<!--    <input type="text" th:field="*{name}" id="name" placeholder="Name">-->
+<!--    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+<!--    <label for="email">Email</label>-->
+<!--    <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
+<!--    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>-->
+<!--    <input type="submit" value="Update User">-->
+<!--</form>-->
+
+<!--<form name="organization" action="addorg" method="post">-->
+<!--    <p>Название организации</p>-->
+<!--    <input title="Название организации" type="text" name="name">-->
+<!--    <p>Физический адрес</p>-->
+<!--    <input title="Физический адрес" type="text" name="address">-->
+<!--    <p>Юридический адрес</p>-->
+<!--    <input title="Юридический адрес" type="text" name="legal_address">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->
+
+
+
+</body>
+</html>
+
+<!--<form name="user" action="/users/update" method="post">-->
+<!--    <p>Name</p>-->
+<!--    <input type="hidden" th:field="${user.id}" />-->
+<!--    <input title="Name" type="text" name="name" th:value="${user.name}">-->
+<!--    <p>Email</p>-->
+<!--    <input title="Email" type="text" name="email" th:value ="${user.email}" >-->
+<!--    <p>Age</p>-->
+<!--    <input title="Age" type="text" name="password" th:value = "${user.age}">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->

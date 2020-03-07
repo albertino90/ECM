@@ -16,7 +16,7 @@
     <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each="structuralUnit : ${organization.structuralUnits}">
         <td>
-            <a th:href="@{${organization.id}+'/strunits/'+${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
+            <a th:href="@{'/organizations/strunits/'+${structuralUnit.id}}"th:text="${structuralUnit.id}"></a>
         </td>
         <td th:text="${structuralUnit.name}"></td>
         <td th:text="${structuralUnit.email}"></td>
@@ -25,6 +25,7 @@
     </tr>
 
 </table>
+<p></p>
 <a th:href="@{ ${organization.id}+'/addsu'}">Добавить структурное подразделение</a>
 <!--<a th:href="@{/acceptplayer/{id}(id=${player.firstName})}">Добавить структурное подразделение</a>-->
 
@@ -36,29 +37,3 @@
 
 </body>
 </html>
-
-<!--<form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">-->
-<!--    <table border="1">-->
-<!--        <tr>-->
-<!--            <td><label th:text="#{msg.id}" /></td>-->
-<!--            <td><input type="number" th:field="*{id}" /></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><label th:text="#{msg.name}" /></td>-->
-<!--            <td><input type="text" th:field="*{name}" /></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><input type="submit" value="Submit" /></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</form>-->
-
-<!--<form name="organization" action="/addorg" method="post">-->
-<!--    <p>Название организации</p>-->
-<!--    <input title="Название организации" type="text" name="name">-->
-<!--    <p>Физический адрес</p>-->
-<!--    <input title="Физический адрес" type="text" name="address">-->
-<!--    <p>Юридический адрес</p>-->
-<!--    <input title="Юридический адрес" type="text" name="legal_address">-->
-<!--    <input type="submit" value="OK">-->
-<!--</form>-->

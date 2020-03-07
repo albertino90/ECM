@@ -37,13 +37,8 @@ public class Employee {
     @OneToMany(mappedBy="author",cascade = CascadeType.ALL)
     private Set<Assignment>author_of_assignments = new HashSet<Assignment>();
 
-//    @NotNull
-//    @EqualsAndHashCode.Exclude
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "organization__id")
-//    private Organization organization;
-
     @EqualsAndHashCode.Exclude
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="structural_unit_id")
     private StructuralUnit structuralUnit;

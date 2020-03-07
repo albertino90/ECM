@@ -1,9 +1,7 @@
 package com.datatehecm.testecm.controllers;
 
 import com.datatehecm.testecm.model.Organization;
-import com.datatehecm.testecm.model.StructuralUnit;
 import com.datatehecm.testecm.services.OrganizationService;
-import com.datatehecm.testecm.services.StructuralUnitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-//@RestController
 @RequiredArgsConstructor
 @RequestMapping("/organizations")
 public class OrganizationController {
 
     private final OrganizationService organizationService;
-    private final StructuralUnitService structuralUnitService;
 
 
     @GetMapping("/all")
@@ -61,40 +57,5 @@ public class OrganizationController {
         organizationService.update(organization);
         return "redirect:/organizations/all";
     }
-
-    @GetMapping("{id}/addsu")
-    public String addStructuralUnit(@PathVariable Long id, Model model){
-//        Organization organization = organizationService.getOrganization(id);
-//        structuralUnit.setOrganization(organization);
-        StructuralUnit structuralUnit = new StructuralUnit();
-        model.addAttribute("organization",organizationService.getOrganization(id));
-        model.addAttribute("strUnit",structuralUnit);
-        return "addStructuralUnit";
-    }
-
-    @PostMapping("/addsu")
-    public String addStrUnit(@ModelAttribute("organization") StructuralUnit structuralUnit) throws Exception {
-        structuralUnitService.addStructuralUnit(structuralUnit);
-        Long redirectId = structuralUnit.getOrganization().getId();
-        return "redirect:/organizations/" + redirectId;
-    }
-
-    @GetMapping("strunits/delete/{id}")
-    public String deleteStructuralUnit(@PathVariable Long id ){
-        StructuralUnit structuralUnit = structuralUnitService.getStructuralUnit(id);
-        Long redirectId = structuralUnit.getOrganization().getId();
-//        structuralUnit.setOrganization(null);
-        structuralUnitService.delete(id);
-
-        return "redirect:" + "/organizations/" + redirectId;
-    }
-
-
-
-
 }
-//    JSON
-//    @RequestMapping(value = "/all", method = RequestMethod.GET)
-//    public List<Organization> getAuthors() {
-//        return organizationService.findAll();
-//    }
+

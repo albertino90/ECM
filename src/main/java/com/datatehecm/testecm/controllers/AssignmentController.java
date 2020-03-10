@@ -17,6 +17,12 @@ public class AssignmentController {
     private final AssignmentService assignmentService;
     private final EmployeeService employeeService;
 
+    @GetMapping("/assignment/{id}")
+    public String watchAssign(@PathVariable Long id, Model model){
+        model.addAttribute("assignment",assignmentService.getAssignment(id));
+        return "showAssignment";
+    }
+
     @GetMapping("employees/{id}/addassignment")
     public String addAssignt(@PathVariable Long id, Model model){
         employeeService.getEmployee(id);
@@ -26,7 +32,12 @@ public class AssignmentController {
         return "newAssignment";
     }
 //todo Все что связанно с поручениями, подключить Spring state Machine
-//    @PostMapping
+    @PostMapping("/addassignment")
+    public String addAssignt(@ModelAttribute("assignment") Assignment assignment){
+        assignmentService.addAssignment(assignment);
+        Long redirectId = assignment.getAuthor().getId();
+        return "redirect:/organizations/employees/" + redirectId;
+    }
 
 
 }

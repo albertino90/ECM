@@ -17,7 +17,7 @@ public class OrganizationController {
     private final OrganizationService organizationService;
 
 
-    @GetMapping("/all")
+    @GetMapping(value = {"/all","/"})
     public String getAllOrgs (Model model){
         model.addAttribute("organizations", organizationService.findAll());
         return "organizationsList";

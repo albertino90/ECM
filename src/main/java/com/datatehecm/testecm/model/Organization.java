@@ -44,7 +44,7 @@ public class Organization {
     @OneToMany(mappedBy = "organization",fetch = FetchType.EAGER, orphanRemoval = true)
     private Set <StructuralUnit> structuralUnits = new HashSet<StructuralUnit>();
 
-    //    убрал сотрудников от орг
+    //    убрал сотрудников от организации
 //    @EqualsAndHashCode.Exclude
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private Set <Employee> employees  = new HashSet<Employee>();

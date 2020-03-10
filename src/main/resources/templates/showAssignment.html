@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User Info</title>
+    <title>Поручение</title>
 </head>
 <body>
 <h1>Поручение</h1>
@@ -25,7 +25,7 @@
 
 </table>
 <br>
-<a href="/all">К поручениям</a>
+<a th:href="@{'/organizations/employees/' + ${assignment.getAuthor().id}}">К поручениям</a>
 
 </body>
 </html>

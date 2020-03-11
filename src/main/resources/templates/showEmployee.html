@@ -13,11 +13,12 @@
 </p>
 <p>Список моих поручений</p>
 
-<table>
+<table border="1">
     <tr>
         <th>id</th>
         <th>Тема поручения</th>
         <th>Текст</th>
+        <th>Кому</th>
     </tr>
 <!--     tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each=" assignment : ${employee.author_of_assignments}">
@@ -25,15 +26,40 @@
             <a th:href="@{'/organizations/assignment/'+${assignment.id}}"th:text="${assignment.id}"></a>
         </td>
         <td th:text="${assignment.headline}"></td>
-        <td th:text="${assignment.text}"></td>
-        <td><a th:href="@{'/organizations/assignment/' + ${employee.id}}"th:text="Delete"></a></td>
-        <td><a th:href="@{'/organizations/assignment/' + ${employee.id}}"th:text="Update"></a></td>
+        <td th:width="400" th:height="50" th:text="${assignment.text}"></td>
+        <td></td>
+        <td><a th:href="@{'/organizations/assignment/delete/' + ${assignment.id}}"th:text="Delete"></a></td>
+        <td><a th:href="@{'/organizations/assignment/update/' + ${assignment.id}}"th:text="Update"></a></td>
     </tr>
 
 </table>
 <a th:href="${employee.id}+'/addassignment'">Создать новое поручение</a>
 <p>Список поручений мне</p>
 <p></p>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>Тема поручения</th>
+        <th>Текст</th>
+        <th>От кого</th>
+    </tr>
+    <!--     tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
+    <tr th:each=" assignment : ${employee.assignments_contractor}">
+        <td>
+            <a th:href="@{'/organizations/assignment/'+${assignment.id}}"th:text="${assignment.id}"></a>
+        </td>
+        <td th:text="${assignment.headline}"></td>
+        <td th:width="400" th:height="50" th:text="${assignment.text}"></td>
+        <td></td>
+        <td><a th:href="@{'/organizations/assignment/delete/' + ${assignment.id}}"th:text="todo Выполнить"></a></td>
+<!--        <td><a th:href="@{'/organizations/assignment/update/' + ${assignment.id}}"th:text=""></a>Вернуь?</td>-->
+    </tr>
+
+</table>
+
+
+<a th:href="@{'/organizations/strunits/' + ${employee.structuralUnit.id}}">Назад</a>
 
 </body>
 </html>

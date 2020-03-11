@@ -39,5 +39,28 @@ public class AssignmentController {
         return "redirect:/organizations/employees/" + redirectId;
     }
 
+    @GetMapping("/assignment/update/{id}")
+    public String updateAssign(@PathVariable Long id, Model model){
+        model.addAttribute("assignment", assignmentService.getAssignment(id));
+        return "updateAssignment";
+    }
+
+    @PostMapping("assignment/update")
+    public String updateAssign(@ModelAttribute("assignment") Assignment assignment){
+        Long redirectId = assignment.getAuthor().getId();
+        assignmentService.update(assignment);
+        return "redirect:/organizations/employees/" + redirectId;
+    }
+
+
+    @GetMapping("/assignment/delete/{id}")
+    public String delAssignment(@PathVariable Long id){
+        Assignment assignment = assignmentService.getAssignment(id);
+        Long redirectId = assignment.getAuthor().getId();
+        assignment.setEmployee_contractor(null);
+        assignmentService.delete(id);
+        return "redirect:/organizations/employees/" + redirectId;
+    }
+
 
 }

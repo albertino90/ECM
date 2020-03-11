@@ -33,7 +33,7 @@ public class Employee {
     private String position;
 
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy="author",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="author",fetch = FetchType.EAGER,orphanRemoval = true)
     private Set<Assignment>author_of_assignments = new HashSet<Assignment>();
 
     @EqualsAndHashCode.Exclude

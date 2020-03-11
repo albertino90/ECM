@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Добавить структурное подразделение </title>
+    <title>Добавить поручение</title>
 </head>
 <body>
 <!--name - название атрибута в модели-->
@@ -12,6 +12,10 @@
     <p></p>
     <input th:type="hidden" name="id" th:value="*{id}" >
     <input th:type="hidden" name="author" th:value="${employee.id}" >
+
+    <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" ><br>
+    <p></p>
+
     <label for="headline">Заголовок поручения</label>
     <p></p>
     <input type="text" th:field="*{headline}" id= "headline" placeholder="Заголовок">
@@ -28,7 +32,7 @@
     <input type="submit" value="OK">
 </form>
 <br>
-<!--<a th:href="@{'/organizations/strunits/'+${strUnit.id}}">Назад</a>-->
+<a th:href="@{'/organizations/employees/'+${employee.id}}">Назад</a>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import com.datatehecm.testecm.repositories.AssignmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -37,5 +38,11 @@ public class AssignmentServiceImpl implements AssignmentService {
     @Override
     public Assignment update(Assignment assignment) {
         return assignmentRepository.saveAndFlush(assignment);
+    }
+
+    @Override
+    public void startTime(Assignment assignment) {
+        LocalDate date = LocalDate.now();
+        assignment.setStartAssignment(date);
     }
 }

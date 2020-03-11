@@ -1,9 +1,12 @@
 package com.datatehecm.testecm.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +29,19 @@ public class Assignment {
 
     @NotNull
     private String text;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startAssignment = LocalDate.now();
+
+//    @NotNull
+//    private Date stopAssignment;
+//    @NotNull
+//    private Date countTimer;
+//    @NotNull
+//    private boolean isActive;
+
+
 
     @NotNull
     @EqualsAndHashCode.Exclude

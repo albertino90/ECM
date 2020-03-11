@@ -11,5 +11,6 @@ public interface AssignmentService {
     Assignment addAssignment (Assignment assignment);
     void delete(Long id);
     Assignment update(Assignment assignment);
+    void startTime(Assignment assignment);
 
 }

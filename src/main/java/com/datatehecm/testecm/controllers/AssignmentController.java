@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping("/organizations")
 @RequiredArgsConstructor
@@ -26,9 +28,10 @@ public class AssignmentController {
     @GetMapping("employees/{id}/addassignment")
     public String addAssignt(@PathVariable Long id, Model model){
         employeeService.getEmployee(id);
-        Assignment assignment = new Assignment();
+//        Assignment assignment = new Assignment();
         model.addAttribute("employee", employeeService.getEmployee(id));
-        model.addAttribute(assignment);
+        model.addAttribute(new Assignment());
+//        model.addAttribute("date", localDate);
         return "newAssignment";
     }
 //todo Все что связанно с поручениями, подключить Spring state Machine

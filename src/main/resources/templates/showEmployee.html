@@ -19,6 +19,8 @@
         <th>Тема поручения</th>
         <th>Текст</th>
         <th>Кому</th>
+        <th>Начало</th>
+        <th>Истекает</th>
     </tr>
 <!--     tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
     <tr th:each=" assignment : ${employee.author_of_assignments}">
@@ -28,15 +30,23 @@
         <td th:text="${assignment.headline}"></td>
         <td th:width="400" th:height="50" th:text="${assignment.text}"></td>
         <td></td>
+        <td th:text="${assignment.startAssignment}"></td>
+        <td></td>
+        <td></td>
         <td><a th:href="@{'/organizations/assignment/delete/' + ${assignment.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'/organizations/assignment/update/' + ${assignment.id}}"th:text="Update"></a></td>
     </tr>
 
 </table>
 <a th:href="${employee.id}+'/addassignment'">Создать новое поручение</a>
+
+
+
+
+
+
 <p>Список поручений мне</p>
 <p></p>
-
 <table border="1">
     <tr>
         <th>id</th>
@@ -56,7 +66,23 @@
 <!--        <td><a th:href="@{'/organizations/assignment/update/' + ${assignment.id}}"th:text=""></a>Вернуь?</td>-->
     </tr>
 
-</table>
+</table><br>
+<!--<script type="text/javascript">-->
+<!--    setInterval(function () {-->
+<!--        date = new Date(),-->
+<!--            h = date.getHours(),-->
+<!--            m = date.getMinutes(),-->
+<!--            s = date.getSeconds(),-->
+<!--            h = (h < 10) ? '0' + h : h,-->
+<!--            m = (m < 10) ? '0' + m : m,-->
+<!--            s = (s < 10) ? '0' + s : s,-->
+<!--            document.getElementById('time').innerHTML = h + ':' + m + ':' + s;-->
+<!--    }, 1000);-->
+<!--</script>-->
+
+<!--<span style="color:#7e5a25; font-size:14pt; border:2px solid #e1d4ae; background:#e8e3d4; padding:5px;">-->
+<!--<span id="time">00:00:00</span>-->
+<!--</span>-->
 
 
 <a th:href="@{'/organizations/strunits/' + ${employee.structuralUnit.id}}">Назад</a>

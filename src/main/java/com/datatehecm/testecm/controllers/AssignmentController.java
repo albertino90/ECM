@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/organizations")
@@ -25,22 +26,24 @@ public class AssignmentController {
         return "showAssignment";
     }
 
+
+    //TODO добавить выпадающий список сотрудников организации на выбор
     @GetMapping("employees/{id}/addassignment")
     public String addAssignt(@PathVariable Long id, Model model){
         employeeService.getEmployee(id);
-//        Assignment assignment = new Assignment();
         model.addAttribute("employee", employeeService.getEmployee(id));
         model.addAttribute(new Assignment());
-//        model.addAttribute("date", localDate);
+//        model.addAttribute("localDateTime", LocalDateTime.now());
         return "newAssignment";
     }
-//todo Все что связанно с поручениями, подключить Spring state Machine
+
     @PostMapping("/addassignment")
     public String addAssignt(@ModelAttribute("assignment") Assignment assignment){
         assignmentService.addAssignment(assignment);
         Long redirectId = assignment.getAuthor().getId();
         return "redirect:/organizations/employees/" + redirectId;
     }
+
 
     @GetMapping("/assignment/update/{id}")
     public String updateAssign(@PathVariable Long id, Model model){

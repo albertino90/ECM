@@ -40,9 +40,5 @@ public class AssignmentServiceImpl implements AssignmentService {
         return assignmentRepository.saveAndFlush(assignment);
     }
 
-    @Override
-    public void startTime(Assignment assignment) {
-        LocalDate date = LocalDate.now();
-        assignment.setStartAssignment(date);
-    }
+
 }

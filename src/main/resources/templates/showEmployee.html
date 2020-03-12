@@ -31,7 +31,7 @@
         <td th:width="400" th:height="50" th:text="${assignment.text}"></td>
         <td></td>
         <td th:text="${assignment.startAssignment}"></td>
-        <td></td>
+        <td th:text="${assignment.endAssignment}"></td>
         <td></td>
         <td><a th:href="@{'/organizations/assignment/delete/' + ${assignment.id}}"th:text="Delete"></a></td>
         <td><a th:href="@{'/organizations/assignment/update/' + ${assignment.id}}"th:text="Update"></a></td>

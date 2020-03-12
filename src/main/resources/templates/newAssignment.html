@@ -7,30 +7,34 @@
 <body>
 <!--name - название атрибута в модели-->
 <form name="#" th:action="@{/organizations/addassignment}" th:object="${assignment}" method="post">
-
-
     <p></p>
     <input th:type="hidden" name="id" th:value="*{id}" >
     <input th:type="hidden" name="author" th:value="${employee.id}" >
-
     <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" ><br>
     <p></p>
-
     <label for="headline">Заголовок поручения</label>
     <p></p>
-    <input type="text" th:field="*{headline}" id= "headline" placeholder="Заголовок">
+    <input th:type="text" th:field="*{headline}" id= "headline" placeholder="Заголовок">
     <p></p>
     <label for="text">Текст поручения</label>
     <p></p>
     <input th:type="text" th:field="*{text}" id="text" placeholder="Текст поручения">
     <p></p>
-<!--    <label for="middle_name">Отчество</label>-->
-<!--    <p></p>-->
-<!--    <input th:type="text" th:field="*{middle_name}" id="middle_name" placeholder="Отчество">-->
-<!--    <p></p>-->
-
+    <label for="endAssignment">Срок исполнения</label>
+    <p></p>
+    <input th:type="datetime-local" th:field="*{endAssignment}" id="endAssignment" placeholder="Срок исполнения">
+    <p></p>
     <input type="submit" value="OK">
 </form>
+<br>
+<!--<form name="#" th:action="@{/organizations/addassignment}" th:object="${assignment}" method="post">-->
+<!--    <p></p>-->
+<!--    <input th:type="hidden" name="id" th:value="*{id}" >-->
+<!--    <input th:type="hidden" name="author" th:value="${employee.id}" >-->
+<!--    <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" ><br>-->
+<!--    <p></p>-->
+
+<!--</form>-->
 <br>
 <a th:href="@{'/organizations/employees/'+${employee.id}}">Назад</a>
 

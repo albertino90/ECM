@@ -33,14 +33,11 @@ public class StructuralUnit {
     @JoinColumn(name = "structuralUnit_manager_id")
     private Employee manager;
 
-//    Для теста в JSON
-//    @JsonIgnoreProperties("structuralUnits")
     @NotNull
     @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "organization__id")
     private Organization organization;
-
 
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy="structuralUnit",fetch = FetchType.EAGER, orphanRemoval = true)

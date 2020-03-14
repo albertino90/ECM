@@ -5,67 +5,31 @@
     <title>Добавить поручение</title>
 </head>
 <body>
-<!--name - название атрибута в модели-->
 <form name="#" th:action="@{/organizations/addassignment}" th:object="${assignment}" method="post">
-    <p></p>
     <input th:type="hidden" name="id" th:value="*{id}" >
     <input th:type="hidden" name="author" th:value="${employee.id}" >
-    <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" ><br>
-    <p></p>
-    <label for="headline">Заголовок поручения</label>
-    <p></p>
-    <input th:type="text" th:field="*{headline}" id= "headline" placeholder="Заголовок">
-    <p></p>
-    <label for="text">Текст поручения</label>
-    <p></p>
-    <input th:type="text" th:field="*{text}" id="text" placeholder="Текст поручения">
-    <p></p>
-    <label for="endAssignment">Срок исполнения</label>
-    <p></p>
-    <input th:type="datetime-local" th:field="*{endAssignment}" id="endAssignment" placeholder="Срок исполнения">
-    <p></p>
+    <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" >
 
-<!--        <tr th:each="empl_contr, empl_contrStat : ${employee_contractor}">-->
-<!--            <td><input th:field="** {books[____${itemStat.index}____].title}"/></td>-->
-<!--            <td><input th:field="** {books[____${itemStat.index}____].author}"/></td>-->
-<!--        </tr>-->
-    <table>
-        <tr>
-            <th>id</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Должность</th>
-        </tr>
-        <!-- tr- строка td-столбец th-создает заголовок ячейки таблицы.-->
-        <tr th:each="employee : ${employee_contractor}">
-<!--            <td>-->
-<!--                <a th:href="@{'/organizations/employees/'+${employee.id}}"th:text="${employee.id}"></a>-->
-<!--            </td>-->
-            <td th:text="${employee.id}"></td>
-            <td th:text="${employee.last_name}"></td>
-            <td th:text="${employee.first_name}"></td>
-            <td th:text="${employee.middle_name}"></td>
-            <td th:text="${employee.position}"></td>
-        </tr>
+    <label for="headline">Заголовок поручения</label><p></p>
+    <input th:type="text" th:field="*{headline}" id= "headline" placeholder="Заголовок"><p></p>
 
-    </table>
+    <label for="text">Текст поручения</label><p></p>
+    <input th:type="text" th:field="*{text}" id="text" placeholder="Текст поручения"><p></p>
 
+    <label for="endAssignment">Срок исполнения</label><p></p>
+    <input th:type="datetime-local" th:field="*{endAssignment}" id="endAssignment" placeholder="Срок исполнения"><p></p>
 
+    <input type="submit" value="OK"><p></p>
+    <li th:each="employee : ${employee_contractor}">
+        <div class="ui checkbox">
+            <input type="checkbox" th:field="*{employee_contractor}" th:value="${employee.id}">
+            <label th:text="${employee.toString()}"></label>
+        </div>
 
-
+    </li>
     <p></p>
-    <input type="submit" value="OK">
 </form>
 <br>
-<!--<form name="#" th:action="@{/organizations/addassignment}" th:object="${assignment}" method="post">-->
-<!--    <p></p>-->
-<!--    <input th:type="hidden" name="id" th:value="*{id}" >-->
-<!--    <input th:type="hidden" name="author" th:value="${employee.id}" >-->
-<!--    <input th:type="hidden" name="startAssignment" th:value="${assignment.startAssignment}" ><br>-->
-<!--    <p></p>-->
-
-<!--</form>-->
 <br>
 <a th:href="@{'/organizations/employees/'+${employee.id}}">Назад</a>
 

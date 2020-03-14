@@ -31,11 +31,11 @@ public class AssignmentController {
     }
 
 
-    //TODO добавить выпадающий список сотрудников организации на выбор
     @GetMapping("employees/{id}/addassignment")
     public String addAssignt(@PathVariable Long id, Model model){
         Employee employee = employeeService.getEmployee(id);
         List<Employee> employee_contractors = employeeService.findAllEmplByOrganization(employee);
+        employee_contractors.remove(employee);
         model.addAttribute("employee", employeeService.getEmployee(id));
         model.addAttribute(new Assignment());
         model.addAttribute("employee_contractor", employee_contractors);

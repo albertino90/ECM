@@ -37,17 +37,6 @@ public class Assignment {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime endAssignment;
 
-
-
-//    @NotNull
-//    private Date stopAssignment;
-//    @NotNull
-//    private Date countTimer;
-//    @NotNull
-//    private boolean isActive;
-
-
-
     @NotNull
     @EqualsAndHashCode.Exclude
     @ManyToOne
@@ -56,12 +45,9 @@ public class Assignment {
 
     @NotNull
     @EqualsAndHashCode.Exclude
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set <Employee> employee_contractor = new HashSet<Employee>();
 
-//    срок исполнения
-//признак контрольности
-//    признак исполнения
 
 
 

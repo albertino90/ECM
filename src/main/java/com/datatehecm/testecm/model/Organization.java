@@ -45,9 +45,9 @@ public class Organization {
     private Set <StructuralUnit> structuralUnits = new HashSet<StructuralUnit>();
 
     //    убрал сотрудников от организации
-//    @EqualsAndHashCode.Exclude
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
-//    private Set <Employee> employees  = new HashSet<Employee>();
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "organization",fetch = FetchType.EAGER, orphanRemoval = true)
+    private Set <Employee> employees  = new HashSet<Employee>();
 
 
 

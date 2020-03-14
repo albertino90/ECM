@@ -12,6 +12,7 @@
     <p></p>
     <input th:type="hidden" name="id" th:value="*{id}" >
     <input th:type="hidden" name="structuralUnit.id" th:value="${strUnit.id}" >
+    <input th:type="hidden" name="organization.id" th:value="${strUnit.organization.id}" >
     <label for="last_name">Фамилия</label>
     <p></p>
     <input type="text" th:field="*{last_name}" id= "last_name" placeholder="Фамилия">

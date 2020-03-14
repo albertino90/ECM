@@ -10,4 +10,5 @@ public interface EmployeeService {
     Employee addEmployee (Employee employee);
     void delete(Long id);
     Employee update(Employee employee);
+    List<Employee> findAllEmplByOrganization(Employee employee);
 }

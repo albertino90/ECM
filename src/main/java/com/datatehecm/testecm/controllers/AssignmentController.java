@@ -2,6 +2,7 @@ package com.datatehecm.testecm.controllers;
 
 
 import com.datatehecm.testecm.model.Assignment;
+import com.datatehecm.testecm.model.Employee;
 import com.datatehecm.testecm.services.AssignmentService;
 import com.datatehecm.testecm.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/organizations")
@@ -30,10 +34,11 @@ public class AssignmentController {
     //TODO добавить выпадающий список сотрудников организации на выбор
     @GetMapping("employees/{id}/addassignment")
     public String addAssignt(@PathVariable Long id, Model model){
-        employeeService.getEmployee(id);
+        Employee employee = employeeService.getEmployee(id);
+        List<Employee> employee_contractors = employeeService.findAllEmplByOrganization(employee);
         model.addAttribute("employee", employeeService.getEmployee(id));
         model.addAttribute(new Assignment());
-//        model.addAttribute("localDateTime", LocalDateTime.now());
+        model.addAttribute("employee_contractor", employee_contractors);
         return "newAssignment";
     }
 

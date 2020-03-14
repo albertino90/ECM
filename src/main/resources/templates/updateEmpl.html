@@ -9,7 +9,8 @@
 <form action="#" th:action="@{/organizations/employee/update}" th:object="${employee}" method="post">
     <p></p>
     <input th:type="hidden" name="id" th:value="*{id}" >
-    <input th:type="text" name="structuralUnit.id" th:value="${employee.structuralUnit.id}" >
+    <input th:type="hidden" name="structuralUnit.id" th:value="${employee.structuralUnit.id}" >
+    <input th:type="hidden" name="organization.id" th:value="${employee.organization.id}" >
     <label for="last_name">Фамилия</label>
     <p></p>
     <input type="text" th:field="*{last_name}" id= "last_name" placeholder="Фамилия">

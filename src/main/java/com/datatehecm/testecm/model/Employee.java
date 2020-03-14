@@ -43,8 +43,18 @@ public class Employee {
     private StructuralUnit structuralUnit;
 
     @EqualsAndHashCode.Exclude
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="organization_id")
+    private Organization organization;
+
+
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "employee_contractor",fetch = FetchType.EAGER)
     private Set<Assignment> assignments_contractor = new HashSet<Assignment>();
+
+
+
 
     @Override
     public String toString() {

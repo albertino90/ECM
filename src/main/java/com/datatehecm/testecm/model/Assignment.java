@@ -29,6 +29,8 @@ public class Assignment {
     @NotNull
     private String text;
 
+    //TODO флаги переходы...?
+
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime startAssignment = LocalDateTime.now();

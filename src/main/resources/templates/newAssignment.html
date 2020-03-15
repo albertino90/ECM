@@ -20,6 +20,7 @@
     <input th:type="datetime-local" th:field="*{endAssignment}" id="endAssignment" placeholder="Срок исполнения"><p></p>
 
     <input type="submit" value="OK"><p></p>
+
     <li th:each="employee : ${employee_contractor}">
         <div class="ui checkbox">
             <input type="checkbox" th:field="*{employee_contractor}" th:value="${employee.id}">

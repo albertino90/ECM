@@ -52,6 +52,8 @@ public class AssignmentController {
 
     @GetMapping("/assignment/update/{id}")
     public String updateAssign(@PathVariable Long id, Model model){
+        List<Employee> employee_contractors = employeeService.findAllEmplByOrganization(employeeService.getEmployee(id));
+        model.addAttribute("employee_contractor", employee_contractors);
         model.addAttribute("assignment", assignmentService.getAssignment(id));
         return "updateAssignment";
     }
